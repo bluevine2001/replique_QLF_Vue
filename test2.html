@@ -1,0 +1,110 @@
+<body>
+    <div id="app">
+        <div class="row">
+            <fiche-produit v-for="produit in produits" @mouseover.native="$set(produit, 'hover', true), log()"
+                @mouseleave.native="$set(produit, 'hover', false)"
+                v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+            </fiche-produit>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        Vue.component("fiche-produit", {
+            template: `<div class="col-3">
+                            <img v-bind:src="image" width="380px">             
+                        </div>`,
+            props: ["image"],
+            methods: {},
+        });
+        new Vue({
+            el: "#app",
+            data: function () {
+                return {
+                    produits: [{
+                            id: "1",
+                            nom: "",
+                            hover: false,
+                            image: "img/coupe-vent-home-menthe.jpg",
+                            image2: "img/technique_mente2.jpg",
+                            prix: "",
+                        },
+                        {
+                            id: "2",
+                            nom: "",
+                            hover: false,
+                            image: "img/Bas_de_jogging_technique_menthe1.jpg",
+                            image2: "img/Bas_de_jogging_technique_menthe2.jpg",
+
+                            prix: "",
+                        },
+                        {
+                            id: "3",
+                            nom: "",
+                            hover: false,
+                            image: "img/coupe-vent-home-noir.jpg",
+                            image2: "img/coupe-vent-home-noir2.jpg",
+                            prix: "",
+                        },
+                        {
+                            id: "4",
+                            nom: "",
+                            hover: false,
+                            image: "img/bas_technique_noir.jpg",
+                            image2: "img/bas_technique_noir2.jpg",
+                            prix: "",
+                        },
+                    ],
+                };
+            },
+            methods: {
+                log() {
+                    console.log("hello");
+                    const {
+                        src,
+                        $el
+                    } = this
+
+                    const observer = new IntersectionObserver(([entry]) => {
+                        const img = $el.querySelector("img")
+
+                        if (entry.isIntersecting) {
+                            // Element is in viewport
+                            img.src = src
+                            observer.disconnect()
+                        }
+                    })
+                    observer.observe($el)
+
+                    this.$once("hook:beforeDestroy", () => {
+                        observer.disconnect()
+                    })
+                },
+            },
+            mounted() {
+                const {
+                    src,
+                    $el
+                } = this
+
+                const observer = new IntersectionObserver(([entry]) => {
+                    const img = $el.querySelector("img")
+
+                    if (entry.isIntersecting) {
+                        // Element is in viewport
+                        img.src = src
+                        observer.disconnect()
+                    }
+                })
+                observer.observe($el)
+
+                this.$once("hook:beforeDestroy", () => {
+                    observer.disconnect()
+                })
+            },
+        });
+    </script>
+    <style></style>
+</body>
+
+</html>

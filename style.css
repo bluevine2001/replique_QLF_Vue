@@ -1,0 +1,141 @@
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    border-bottom: 1px solid #000;
+}
+
+header div {
+    height: 35px;
+}
+
+header img {
+    float: left;
+    padding-top: 7px;
+    padding-left: 10px;
+    width: 180px;
+}
+
+header ul {
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+header ul li {
+    display: inline;
+    text-decoration: none;
+}
+
+header ul li a {
+    padding: 0px 10px;
+    font-size: 14px;
+}
+
+header a {
+    color: #000;
+}
+
+#menu {
+    text-align: center;
+}
+
+.shop-cart a {
+    float: right;
+    padding-right: 20px;
+    padding-top: 3px;
+}
+
+section .row {
+    border-bottom: 1px #000 dashed;
+}
+
+footer {
+
+    height: 270px;
+    padding: 80px 0px;
+}
+
+footer .row {
+    height: 110px;
+    margin: 0% 10%;
+}
+
+footer h6 {
+    margin-bottom: 25px;
+    font-weight: 100;
+}
+
+footer a,
+footer p {
+    font-size: 12px;
+    line-height: 0.5;
+    color: #000;
+}
+
+.newsletter input {
+    border: none;
+    font-size: 12px;
+    width: 90%;
+}
+
+.newsletter {
+    border: #000 1px solid;
+    padding: 2px;
+}
+
+.shop-list {
+    position: absolute;
+    height: 100%;
+    background: #fff;
+    border: #000 1px solid;
+    left: 75%;
+    width: 25%;
+    display: block;
+    z-index: 99 !important;
+    min-height: 100vh;
+}
+
+.shop-header {
+    margin: 25px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    z-index: 99;
+}
+
+.shop-header h3 {
+    font-size: 15px;
+    padding-left: 0px;
+}
+
+.shop-header a {
+    font-size: 17px;
+    color: #000;
+    text-decoration: none;
+    padding-right: 0px;
+}
+
+.shop-content {
+    padding: 5px 25px;
+    font-size: 12px;
+    z-index: 99;
+}
+
+/* animation*/
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all .5s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateX(25%);
+    opacity: 0;
+}
+
+
+
+.product {
+    z-index: -1;
+}

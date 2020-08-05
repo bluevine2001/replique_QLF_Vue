@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Que La Famille</title>
+  <link rel="shortcut icon" href="img/flavicon_32x32.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <transition name="slide-fade">
+      <shop-list v-if="shopListIsActive" v-on:toggle="this.toggleShopList"></shop-list>
+    </transition>
+
+    <header>
+      <div class="row">
+        <div class="col-4">
+          <img src="https://cdn.shopify.com/s/files/1/0083/4856/5568/files/QUELAFAMILLE.svg?v=1587044097" />
+        </div>
+        <div class="col-4" id="menu">
+          <ul>
+            <li><a href="#">Catalogue</a></li>
+            <li><a href="#">Look Book</a></li>
+            <li><a href="#">Mon compte</a></li>
+          </ul>
+        </div>
+        <div class="col-4 shop-cart" @click="toggleShopList">
+          <a><i class="icon-shopping-cart" style="font-size: 22px;"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="row" class="product">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row" class="product">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits2"
+          v-bind:image="[produit.hover?produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row" class="product">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits3"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits4"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits5"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits6"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits7"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+      <div class="row">
+        <fiche-produit @mouseover.native="$set(produit, 'hover', true)"
+          @mouseleave.native="$set(produit, 'hover', false)" v-for="produit in produits8"
+          v-bind:image="[produit.hover ? produit.image2 : produit.image]" v-bind:key="produit.id">
+        </fiche-produit>
+      </div>
+    </section>
+    <footer>
+      <div class="row">
+        <div class="col-3">
+          <h6>contacts</h6>
+          <a href="mailto:service-clients@quelafamille.com">
+            <p>service-clients@quelafamille.com</p>
+          </a>
+          <p>Lun.-Ven. 10h-13h / 14h-18h</p>
+        </div>
+        <div class="col-3">
+          <h6>informations</h6>
+          <a href="">
+            <p>Conditions générales</p>
+          </a>
+          <a href="">
+            <p>Politique de confidentialité</p>
+          </a>
+          <a href="">
+            <p>Service client et retours</p>
+          </a>
+        </div>
+        <div class="col-3">
+          <h6>newsletter</h6>
+          <p>Inscrivez-vous pour être averti des prochains drops</p>
+          <div class="newsletter">
+            <i class="icon-envelope" style="font-size: 20px;"></i>
+            <input type="email" name="email" placeholder="Inscrivez-vous à notre newsletter" />
+          </div>
+        </div>
+        <div class="col-3">
+          <h6>credits</h6>
+
+          <a href="">
+            <p>Que La Famille</p>
+          </a>
+          <a href="">
+            <p>Twistudio</p>
+          </a>
+          <a href="">
+            <p>Rémi Procureur</p>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
