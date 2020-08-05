@@ -1,0 +1,10 @@
+git init
+git add .
+git reset .
+git commit -m "first commit"
+node > gitignore
+rm -rf .git
+git branch = savoir sur quelle branche on est.
+git checkout -b feature = switchez entre les branche (-b = nouvelle branche).
+git stash -u = sauvegarde le travail sans le commit.
+git stash pop = commit le travail sauvegardé.
